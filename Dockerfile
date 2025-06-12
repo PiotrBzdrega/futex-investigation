@@ -1,4 +1,5 @@
 # podman build --platform linux/arm/v7 -t futex-investigation .
+# podman build --platform linux/amd64 -t futex-investigation .
 # podman run --rm -it futex-investigation sh
 # podman rmi localhost/futex-investigation
 # podman save -o futex-investigation.tar futex-investigation

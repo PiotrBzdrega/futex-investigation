@@ -4,7 +4,7 @@
 #include <chrono>
 #include <condition_variable>
 
-std::condition_variable cv;
+std::condition_variable_any cv;
 std::mutex m;
 bool ready{};
 
