@@ -1,0 +1,16 @@
+piotrbz@k21049859:~/futex-investigation$ strace -e futex ./build/futex-investigation 1 10
+futex(0x7b4d6367a7bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+arg1 = 1, arg2 = 10
+thread::id of a non-executing thread false
+futex(0x7b4d62fff990, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 24949, NULL, FUTEX_BITSET_MATCH_ANYWorker thread1 started 2025-06-12 08:45:04
+Worker thread1 leave wait_until 2025-06-12 08:45:14
+) = 0
++++ exited with 0 +++
+piotrbz@k21049859:~/futex-investigation$ strace -e futex ./build/futex-investigation 2 10
+futex(0x71c5c847a7bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+arg1 = 2, arg2 = 10
+thread::id of a non-executing thread false
+Worker thread2 started 2025-06-12 08:45:36
+futex(0x71c5c7dff990, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 25172, NULL, FUTEX_BITSET_MATCH_ANYWorker thread2 leave wait_for 2025-06-12 08:45:46
+) = 0
++++ exited with 0 +++
