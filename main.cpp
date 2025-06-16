@@ -10,8 +10,6 @@ bool ready{};
 
 using namespace std::chrono_literals;
 
-/* Check what happend if we wait until time in past */
-
 void worker_thread1(std::chrono::seconds timeout)
 {
     std::println("Worker thread1 started {}",std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now()));
@@ -83,15 +81,11 @@ int main(int argv, char** args)
             throw std::runtime_error("Failed to parse arg2 as an integer");
         }
 
-    std::jthread worker;
+        std::jthread worker;
 
-    std::println("{} {}",worker.get_id(),worker.joinable());
+        // std::println("{} {}",worker.get_id(),worker.joinable());
 
-    
-
-    worker=std::jthread(thread_number == 2 ? worker_thread2 : worker_thread1,std::chrono::seconds(seconds));
-
-
+        worker=std::jthread(thread_number == 2 ? worker_thread2 : worker_thread1,std::chrono::seconds(seconds));
     }
     else
     {
